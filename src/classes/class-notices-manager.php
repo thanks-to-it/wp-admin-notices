@@ -2,9 +2,9 @@
 /**
  * WP Admin Notices TTWP - Notices Maanger
  *
- * @version 1.1.0
+ * @version 1.0.0
  * @since   1.0.0
- * @author  Algoritmika Ltd.
+ * @author  Pablo S G Pacheco
  */
 
 namespace ThanksToWP\WPAN;
@@ -17,36 +17,10 @@ if ( ! class_exists( 'ThanksToWP\WPAN\NoticesManager' ) ) {
 
 	class NoticesManager {
 
-		//protected static $instance = null;
 		public $activated_plugins = array();
 		public $upgrader_process_object;
 		public $upgrader_process_options;
 		public $file_path;
-
-
-		/*public function create_notice( $args ) {
-			if ( ! is_admin() ) {
-				return;
-			}
-
-			if ( empty( $args['id'] ) ) {
-				return new \WP_Error( 'empty_id', __( 'Missing "id" parameter ', 'wp-admin-notices-ttwp' ) );
-			} else {
-				$id = $args['id'];
-
-				// Store notice configuration
-				update_option( "ttwpwpan_notice_{$id}", $args, false );
-
-				// Store notice id
-				$prev_ids   = get_option( "ttwpwpan_ids", array() );
-				$count      = count( $prev_ids );
-				$prev_ids[] = $id;
-				$prev_ids   = array_unique( $prev_ids );
-				if ( count( $prev_ids ) != $count ) {
-					update_option( "ttwpwpan_ids", $prev_ids, false );
-				}
-			}
-		}*/
 
 		public function handle_ajax_dismiss() {
 			$ajax = new Ajax();
@@ -80,14 +54,6 @@ if ( ! class_exists( 'ThanksToWP\WPAN\NoticesManager' ) ) {
 			$notice->keep_active_on = $args['keep_active_on'];
 			$notice->enable();
 		}
-
-		/*public function get_useful_data_from_wp() {
-			if ( current_filter() != 'activated_plugin' ) {
-				add_action( 'activated_plugin', array( $this, 'get_activated_plugin' ) );
-			} else {
-				$this->get_activated_plugin();
-			}
-		}*/
 
 		public function discard_data() {
 			delete_option( 'ttwpwpan_activated_plugins' );

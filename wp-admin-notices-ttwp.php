@@ -72,18 +72,6 @@ if ( ! class_exists( 'WPANTTWP_Plugin' ) ) {
 			add_action( 'upgrader_process_complete', function ( $upgrader_object, $options ) {
 				$notices_manager = \ThanksToWP\WPAN\get_notices_manager();
 				$notices_manager->set_upgrader_process( $upgrader_object, $options );
-				//error_log('---%---');
-				//error_log(print_r($options,true));
-
-				/*$current_plugin_path_name = plugin_basename( __FILE__ );
-
-				if ($options['action'] == 'update' && $options['type'] == 'plugin' ){
-					foreach($options['plugins'] as $each_plugin){
-						if ($each_plugin==$current_plugin_path_name){
-							set_transient( 'frou_activated_or_updated', true, 30 );
-						}
-					}
-				}*/
 			}, 10, 2 );
 
 			add_action( 'admin_notices', function () {
@@ -94,12 +82,16 @@ if ( ! class_exists( 'WPANTTWP_Plugin' ) ) {
 			add_action( 'admin_notices', function () {
 				$notices_manager = \ThanksToWP\WPAN\get_notices_manager();
 				$notices_manager->create_notice( array(
-					'id'         => 'test',
-					'content'    => '<p>First Notice</p>',
+					'id'         => 'my_notice',
+					'content'    => '<p>My Notice</p>',
 					'display_on' => array(
-						'screen_id'      => array( 'plugins' ),
+						'screen_id' => array( 'plugins' ),
+						'request'   => array(
+							array( 'key' => 'show_notice', 'value' => '1' ),
+							array( 'key' => 'show_notice', 'value' => 'true' )
+						),
 						//'activated_plugin' => array( 'alg-ajax-search/ajax-product-search-woocommerce.php' ),
-						'updated_plugin' => array('akismet/akismet.php')
+						//'updated_plugin' => array('akismet/akismet.php')
 					)
 				) );
 			} );

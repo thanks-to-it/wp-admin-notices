@@ -70,14 +70,11 @@ if ( ! class_exists( 'ThanksToWP\WPAN\Display_Rules' ) ) {
 
 			foreach ( $rules as $key => $value ) {
 				if ( ! empty( $value ) ) {
-					if (
-						$key == 'screen_id' ||
-						$key == 'activated_plugin' ||
-						$key == 'updated_plugin'
-					) {
+					if ( method_exists( $this, "rule_{$key}_match" ) ) {
 						add_filter( "ttwpwpan_rule_{$key}", array( $this, "rule_{$key}_match" ), 10, 2 );
 					}
-					$match = apply_filters( "ttwpwpan_rule_{$key}", true, $value );
+
+					$match = apply_filters( "ttwpwpan_rule_{$key}", false, $value );
 
 					if ( ! $match ) {
 						if ( in_array( $key, $this->notice->keep_active_on ) ) {
@@ -90,7 +87,6 @@ if ( ! class_exists( 'ThanksToWP\WPAN\Display_Rules' ) ) {
 						break;
 					} else {
 						$this->notice->keep_active_if_necessary( $key );
-						//$this->keep_active_if_necessary( $key );
 					}
 				}
 			}
@@ -107,7 +103,28 @@ if ( ! class_exists( 'ThanksToWP\WPAN\Display_Rules' ) ) {
 			return $plugins_array;
 		}
 
-		public function rule_updated_plugin_match( $match = true, $plugins ) {
+		public function rule_request_match( $match = true, $conditions ) {
+			if ( ! is_array( $conditions ) ) {
+				return false;
+			}
+
+			foreach ( $conditions as $condition ) {
+				$key   = isset( $condition['key'] ) ? $condition['key'] : '';
+				$value = isset( $condition['value'] ) ? $condition['value'] : '';
+				if (
+					isset( $_REQUEST[ $key ] ) &&
+					! empty( $_REQUEST[ $key ] ) &&
+					$_REQUEST[ $key ] == $value
+				) {
+					return true;
+					break;
+				}
+			}
+
+			return false;
+		}
+
+		public function rule_updated_plugin_match( $match = false, $plugins ) {
 			$options = get_option( 'ttwpwpan_upgrader_options', array() );
 			$plugins = $this->replace_self_by_plugin_basename( $plugins );
 
@@ -130,7 +147,7 @@ if ( ! class_exists( 'ThanksToWP\WPAN\Display_Rules' ) ) {
 			}
 		}
 
-		public function rule_activated_plugin_match( $match = true, $plugins ) {
+		public function rule_activated_plugin_match( $match = false, $plugins ) {
 			$activated_plugins = get_option( 'ttwpwpan_activated_plugins', array() );
 			if ( count( $activated_plugins ) > 0 ) {
 				wp_clear_scheduled_hook( 'wpanttwp_dispose_event' );
@@ -144,7 +161,7 @@ if ( ! class_exists( 'ThanksToWP\WPAN\Display_Rules' ) ) {
 			}
 		}
 
-		public function rule_screen_id_match( $match = true, $screen ) {
+		public function rule_screen_id_match( $match = false, $screen ) {
 			$current_screen = get_current_screen();
 			if ( is_array( $screen ) ) {
 				if ( array_search( $current_screen->id, $screen ) !== false ) {
