@@ -17,12 +17,12 @@ if ( ! class_exists( 'ThanksToWP\WPAN\NoticesManager' ) ) {
 
 	class NoticesManager {
 
-		public $activated_plugins = array();
-		public $upgrader_process_object;
-		public $upgrader_process_options;
-		public $file_path;
+		public static $activated_plugins = array();
+		public static $upgrader_process_object;
+		public static $upgrader_process_options;
 
-		public function handle_ajax_dismiss() {
+
+		public static function ajax_dismiss() {
 			$ajax = new Ajax();
 			$ajax->dismiss();
 		}
@@ -55,47 +55,18 @@ if ( ! class_exists( 'ThanksToWP\WPAN\NoticesManager' ) ) {
 			$notice->enable();
 		}
 
-		public function discard_data() {
-			delete_option( 'ttwpwpan_activated_plugins' );
-		}
-
-		public function set_activated_plugin( $plugin ) {
-			$activated_plugins       = $this->activated_plugins;
+		public static function set_activated_plugin( $plugin ) {
+			$activated_plugins       = self::$activated_plugins;
 			$activated_plugins[]     = $plugin;
-			$this->activated_plugins = $activated_plugins;
-			update_option( 'ttwpwpan_activated_plugins', $this->activated_plugins );
+			self::$activated_plugins = $activated_plugins;
+			set_transient( 'ttwpwpan_activated_plugins', self::$activated_plugins, WEEK_IN_SECONDS );
 		}
 
-		public function set_upgrader_process( $upgrader_object, $options ) {
-			$this->upgrader_process_object  = $upgrader_object;
-			$this->upgrader_process_options = $options;
-			update_option( 'ttwpwpan_upgrader_options', $options );
+		public static function set_upgrader_process( $upgrader_object, $options ) {
+			self::$upgrader_process_object  = $upgrader_object;
+			self::$upgrader_process_options = $options;
+			set_transient( 'ttwpwpan_upgrader_options', $options, WEEK_IN_SECONDS );
 		}
-
-		public function set_plugin_filepath( $path ) {
-			$this->file_path = $path;
-		}
-
-		/**
-		 * Constructor.
-		 *
-		 * @version 1.0.0
-		 * @since   1.0.0
-		 */
-		/*protected function __construct() {
-			add_action( 'admin_notices', array( $this, 'save_current_screen' ) );
-			add_action( 'activated_plugin', array( $this, 'save_activated_plugin' ) );
-		}
-
-		public function save_activated_plugin( $plugin ) {
-			//error_log(print_r($plugin,true));
-		}
-
-		public function save_current_screen() {
-			$current_screen = get_current_screen();
-			$screen_id      = $current_screen->id;
-			update_option( "ttwpwpan_screen", $screen_id, false );
-		}*/
 
 		/**
 		 * Call this method to get singleton

@@ -94,14 +94,14 @@ if ( ! class_exists( 'ThanksToWP\WPAN\Display_Rules' ) ) {
 			return $all_match;
 		}
 
-		private function replace_self_by_plugin_basename( $plugins_array ) {
+		/*private function replace_self_by_plugin_basename( $plugins_array ) {
 			$self_index = array_search( 'self', $plugins_array );
 			if ( $self_index !== false ) {
 				$plugins_array[ $self_index ] = plugin_basename( $this->manager->file_path );
 			}
 
 			return $plugins_array;
-		}
+		}*/
 
 		public function rule_request_match( $match = true, $conditions ) {
 			if ( ! is_array( $conditions ) ) {
@@ -125,18 +125,15 @@ if ( ! class_exists( 'ThanksToWP\WPAN\Display_Rules' ) ) {
 		}
 
 		public function rule_updated_plugin_match( $match = false, $plugins ) {
-			$options = get_option( 'ttwpwpan_upgrader_options', array() );
-			$plugins = $this->replace_self_by_plugin_basename( $plugins );
+			$options = get_transient( 'ttwpwpan_upgrader_options' );
+			$options = $options === false ? array() : $options;
+			//$plugins = $this->replace_self_by_plugin_basename( $plugins );
 
 			if ( empty( $options ) ) {
 				return false;
 			}
 
 			if ( $options['action'] == 'update' && $options['type'] == 'plugin' ) {
-				if ( count( $options['plugins'] ) > 0 ) {
-					wp_clear_scheduled_hook( 'wpanttwp_dispose_event' );
-					wp_schedule_single_event( time() + 1, 'wpanttwp_dispose_event' );
-				}
 				if ( count( array_intersect( $options['plugins'], $plugins ) ) > 0 ) {
 					return true;
 				} else {
@@ -148,12 +145,9 @@ if ( ! class_exists( 'ThanksToWP\WPAN\Display_Rules' ) ) {
 		}
 
 		public function rule_activated_plugin_match( $match = false, $plugins ) {
-			$activated_plugins = get_option( 'ttwpwpan_activated_plugins', array() );
-			if ( count( $activated_plugins ) > 0 ) {
-				wp_clear_scheduled_hook( 'wpanttwp_dispose_event' );
-				wp_schedule_single_event( time() + 1, 'wpanttwp_dispose_event' );
-			}
-			$plugins = $this->replace_self_by_plugin_basename( $plugins );
+			$activated_plugins = get_transient( 'ttwpwpan_activated_plugins' );
+			$activated_plugins = $activated_plugins === false ? array() : $activated_plugins;
+			$plugins           = $this->replace_self_by_plugin_basename( $plugins );
 			if ( count( array_intersect( $activated_plugins, $plugins ) ) > 0 ) {
 				return true;
 			} else {

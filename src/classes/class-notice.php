@@ -66,18 +66,20 @@ if ( ! class_exists( 'ThanksToWP\WPAN\Notice' ) ) {
 
 		public function keep_active_if_necessary( $display_on_key ) {
 			if ( in_array( $display_on_key, $this->keep_active_on ) ) {
-				$ids   = get_option( "ttwpwpan_active_notices", array() );
+				$ids   = get_transient( "ttwpwpan_active_notices" );
+				$ids = $ids===false ? array() : $ids;
 				$count = count( $ids );
 				$ids[] = $this->get_id();
 				$ids   = array_unique( $ids );
 				if ( count( $ids ) != $count ) {
-					update_option( "ttwpwpan_active_notices", $ids, false );
+					set_transient( "ttwpwpan_active_notices", $ids, MONTH_IN_SECONDS );
 				}
 			}
 		}
 
 		public function is_active() {
-			$ids   = get_option( "ttwpwpan_active_notices", array() );
+			$ids   = get_transient( "ttwpwpan_active_notices" );
+			$ids = $ids===false ? array() : $ids;
 			$found = array_search( $this->get_id(), $ids );
 			if ( $found !== false ) {
 				return true;
@@ -87,12 +89,13 @@ if ( ! class_exists( 'ThanksToWP\WPAN\Notice' ) ) {
 		}
 
 		public function remove_from_active() {
-			$ids   = get_option( "ttwpwpan_active_notices", array() );
+			$ids   = get_transient( "ttwpwpan_active_notices" );
+			$ids = $ids===false ? array() : $ids;
 			$found = array_search( $this->get_id(), $ids );
 			if ( $found !== false ) {
 				unset( $ids[ $found ] );
 			}
-			update_option( "ttwpwpan_active_notices", $ids, false );
+			set_transient( "ttwpwpan_active_notices", $ids, MONTH_IN_SECONDS );
 		}
 
 		private static function handle_javascript() {

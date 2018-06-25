@@ -4,6 +4,7 @@
     <list default="true" id="6fe0e7b4-3785-4528-a502-7457c8bb129f" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/classes/class-display-rules.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/class-display-rules.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/class-notice.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/class-notice.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/classes/class-notices-manager.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/class-notices-manager.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/wp-admin-notices-ttwp.php" beforeDir="false" afterPath="$PROJECT_DIR$/wp-admin-notices-ttwp.php" afterDir="false" />
     </list>
@@ -21,12 +22,12 @@
     <drupalPath />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="wp-admin-notices-ttwp.php" pinned="false" current-in-tab="true">
+    <leaf>
+      <file leaf-file-name="wp-admin-notices-ttwp.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wp-admin-notices-ttwp.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="464">
-              <caret line="94" column="21" lean-forward="true" selection-start-line="94" selection-start-column="21" selection-end-line="94" selection-end-column="21" />
+            <state relative-caret-position="336">
+              <caret line="59" column="49" lean-forward="true" selection-start-line="59" selection-start-column="49" selection-end-line="59" selection-end-column="49" />
               <folding>
                 <element signature="e#6#359#0#PHP" expanded="true" />
               </folding>
@@ -34,11 +35,20 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="128">
+              <caret line="8" column="8" selection-start-line="8" selection-start-column="8" selection-end-line="8" selection-end-column="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="class-display-rules.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/classes/class-display-rules.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="336">
-              <caret line="84" column="37" lean-forward="true" selection-start-line="84" selection-start-column="37" selection-end-line="84" selection-end-column="37" />
+            <state relative-caret-position="237">
+              <caret line="130" lean-forward="true" selection-start-line="130" selection-end-line="130" />
             </state>
           </provider>
         </entry>
@@ -46,8 +56,8 @@
       <file leaf-file-name="class-notice.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/classes/class-notice.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1928">
-              <caret line="20" column="21" selection-start-line="20" selection-start-column="21" selection-end-line="20" selection-end-column="21" />
+            <state relative-caret-position="61">
+              <caret line="69" column="53" selection-start-line="69" selection-start-column="53" selection-end-line="69" selection-end-column="53" />
               <folding>
                 <element signature="e#6#114#0#PHP" expanded="true" />
               </folding>
@@ -58,8 +68,26 @@
       <file leaf-file-name="class-notices-manager.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/classes/class-notices-manager.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="152">
-              <caret line="57" column="24" selection-start-line="57" selection-start-column="24" selection-end-line="57" selection-end-column="24" />
+            <state relative-caret-position="472">
+              <caret line="42" column="17" lean-forward="true" selection-start-line="42" selection-start-column="17" selection-end-line="42" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="default-constants.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../../../../wp/wp-includes/default-constants.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="202">
+              <caret line="123" column="13" selection-start-line="123" selection-start-column="13" selection-end-line="123" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="class-ajax.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/classes/class-ajax.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="176">
+              <caret line="17" column="24" selection-start-line="17" selection-start-column="24" selection-end-line="17" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -85,6 +113,17 @@
       <find>error_lo</find>
       <find>error_log</find>
       <find>display_rules(</find>
+      <find>set_acti</find>
+      <find>filep</find>
+      <find>path</find>
+      <find>active</find>
+      <find>ttwpwpan_active_notices</find>
+      <find>replace_self_by_plugin_basename</find>
+      <find>discard_data</find>
+      <find>sched</find>
+      <find>wpanttwp_dispose_event</find>
+      <find>ttwpwpan_upgrader_options</find>
+      <find>ttwpwpan_activated_plugins</find>
     </findStrings>
     <replaceStrings>
       <replace>WPANTTWP</replace>
@@ -110,9 +149,10 @@
         <option value="$PROJECT_DIR$/src/classes/class-javascript.php" />
         <option value="$PROJECT_DIR$/src/functions/functions.php" />
         <option value="$PROJECT_DIR$/src/classes/class-notice.php" />
+        <option value="$PROJECT_DIR$/src/classes/class-display-rules.php" />
         <option value="$PROJECT_DIR$/src/classes/class-notices-manager.php" />
         <option value="$PROJECT_DIR$/wp-admin-notices-ttwp.php" />
-        <option value="$PROJECT_DIR$/src/classes/class-display-rules.php" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -137,7 +177,7 @@
       <path value="$PROJECT_DIR$/vendor/composer" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-7" />
     <option name="width" value="1932" />
     <option name="height" value="1057" />
@@ -154,17 +194,6 @@
             <path>
               <item name="wp-admin-notices-ttwp" type="b2602c69:ProjectViewProjectNode" />
               <item name="wp-admin-notices-ttwp" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="wp-admin-notices-ttwp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="wp-admin-notices-ttwp" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="wp-admin-notices-ttwp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="wp-admin-notices-ttwp" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="classes" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -215,27 +244,30 @@
       <workItem from="1529678974090" duration="626000" />
       <workItem from="1529718161658" duration="8921000" />
       <workItem from="1529780049220" duration="697000" />
-      <workItem from="1529808900427" duration="2379000" />
+      <workItem from="1529808900427" duration="3045000" />
+      <workItem from="1529948716179" duration="1463000" />
+      <workItem from="1529965900265" duration="3115000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="46876000" />
+    <option name="totallyTimeSpent" value="52120000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2793177" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
-      <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="7" visible="true" weight="0.32897604" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2857143" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="right" id="Database" order="3" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32897604" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -244,7 +276,6 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32897604" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -257,13 +288,6 @@
     <wordpressPath>C:\xampp\htdocs\wp</wordpressPath>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/classes/class-display-rules.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1088">
-          <caret line="74" selection-start-line="74" selection-end-line="74" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/classes/class-ajax.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="288">
@@ -282,9 +306,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="336">
           <caret line="27" selection-start-line="27" selection-end-line="27" />
-          <folding>
-            <element signature="e#6#115#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -323,9 +344,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="336">
           <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
-          <folding>
-            <element signature="e#6#115#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -364,9 +382,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="320">
           <caret line="26" column="16" selection-start-line="26" selection-start-column="16" selection-end-line="26" selection-end-column="16" />
-          <folding>
-            <element signature="e#6#115#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -398,9 +413,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="320">
           <caret line="26" column="16" selection-start-line="26" selection-start-column="16" selection-end-line="26" selection-end-column="16" />
-          <folding>
-            <element signature="e#6#115#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -552,13 +564,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/admin-notices-ttwp.php" />
-    <entry file="file://$PROJECT_DIR$/../../../../wp/wp-includes/default-constants.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="202">
-          <caret line="124" column="13" selection-start-line="124" selection-start-column="13" selection-end-line="124" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/composer.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="528">
@@ -587,53 +592,61 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/classes/class-javascript.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/classes/class-ajax.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="24" column="25" selection-start-line="24" selection-start-column="25" selection-end-line="24" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/classes/class-javascript.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#6#115#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/classes/class-notices-manager.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="57" column="24" selection-start-line="57" selection-start-column="24" selection-end-line="57" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/classes/class-display-rules.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="84" column="37" lean-forward="true" selection-start-line="84" selection-start-column="37" selection-end-line="84" selection-end-column="37" />
+        <state relative-caret-position="176">
+          <caret line="17" column="24" selection-start-line="17" selection-start-column="24" selection-end-line="17" selection-end-column="24" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/classes/class-notice.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1928">
-          <caret line="20" column="21" selection-start-line="20" selection-start-column="21" selection-end-line="20" selection-end-column="21" />
+        <state relative-caret-position="61">
+          <caret line="69" column="53" selection-start-line="69" selection-start-column="53" selection-end-line="69" selection-end-column="53" />
           <folding>
             <element signature="e#6#114#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/classes/class-display-rules.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="237">
+          <caret line="130" lean-forward="true" selection-start-line="130" selection-end-line="130" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../../wp/wp-includes/default-constants.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="202">
+          <caret line="123" column="13" selection-start-line="123" selection-start-column="13" selection-end-line="123" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/classes/class-notices-manager.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="472">
+          <caret line="42" column="17" lean-forward="true" selection-start-line="42" selection-start-column="17" selection-end-line="42" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/wp-admin-notices-ttwp.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="464">
-          <caret line="94" column="21" lean-forward="true" selection-start-line="94" selection-start-column="21" selection-end-line="94" selection-end-column="21" />
+        <state relative-caret-position="336">
+          <caret line="59" column="49" lean-forward="true" selection-start-line="59" selection-start-column="49" selection-end-line="59" selection-end-column="49" />
           <folding>
             <element signature="e#6#359#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="128">
+          <caret line="8" column="8" selection-start-line="8" selection-start-column="8" selection-end-line="8" selection-end-column="8" />
         </state>
       </provider>
     </entry>
