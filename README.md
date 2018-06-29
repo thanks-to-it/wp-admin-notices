@@ -30,6 +30,7 @@ add_action( 'admin_notices', function () {
 |**keep_active_on**|Keep notice active after display_on triggers until users close it| `array` | `array( 'activated_plugin', 'updated_plugin' )`
 
 # display_on parameters
+Situations where/when the notice should be displayed
 
 |Arg                |Description                    |type    |Example |               
 |----------------|-------------------------------|--------|---------------------------|
