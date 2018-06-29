@@ -28,3 +28,12 @@ add_action( 'admin_notices', function () {
 |**dismissible**|If notice can be closed   |`boolean`              |`true`|
 |**dismissal_expiration**|Time in seconds the notice will be hidden after users close it| `int` | `1 * MONTH_IN_SECONDS`
 |**keep_active_on**|Keep notice active after display_on triggers until users close it| `array` | `array( 'activated_plugin', 'updated_plugin' )`
+
+# display_on parameters
+
+|Arg                |Description                    |type    |Example |               
+|----------------|-------------------------------|--------|---------------------------|
+|**request**| Displays on $_GET or $_POST values            |`array`              |`'request' => array( array( 'key' => 'show_notice', 'value' => '1'), array( 'key' => 'show_notice', 'value' => 'true') )`|
+|**screen_id**| Displays on Admin Screen Ids            |`array`              |`array( 'plugins' )`|
+|**activated_plugin**| Displays if some plugin gets activated            |`array`              |`array('akismet/akismet.php')`|
+|**updated_plugin**| Displays if some plugin gets updated|`array`              |`array('akismet/akismet.php')`|
