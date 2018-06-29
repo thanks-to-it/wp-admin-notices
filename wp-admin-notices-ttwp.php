@@ -71,7 +71,6 @@ if ( ! class_exists( 'WPANTTWP_Plugin' ) ) {
 				) );
 			} );
 
-
 			/*
 			$manager->handle_notice( array(
 				'id'                   => 'test',

@@ -21,14 +21,13 @@ if ( ! class_exists( 'ThanksToWP\WPAN\NoticesManager' ) ) {
 		public static $upgrader_process_object;
 		public static $upgrader_process_options;
 
-
 		public static function ajax_dismiss() {
 			$ajax = new Ajax();
 			$ajax->dismiss();
 		}
 
 		public function create_notice( $args ) {
-			$args       = wp_parse_args( $args, array(
+			$args        = wp_parse_args( $args, array(
 				'id'                   => '',
 				'type'                 => 'notice-info', // | 'notice-warning' | 'notice-success' | 'notice-error' | 'notice-info',
 				'dismissible'          => true,
@@ -37,18 +36,22 @@ if ( ! class_exists( 'ThanksToWP\WPAN\NoticesManager' ) ) {
 				'enabled'              => true,
 				'keep_active_on'       => array( 'activated_plugin', 'updated_plugin' ),
 				'display_on'           => array(
-					'screen_id'        => array(),  // array( 'plugins' ),
+					'request'          => array(//array( 'key' => 'show_notice', 'value' => '1' ),
+					),
+					'screen_id'        => array(), // array( 'plugins' ),
 					'activated_plugin' => array(), // array( 'plugin-a' ),
 					'updated_plugin'   => array(), //array( 'plugin-b' ),
 				)
 			) );
-			$expiration = $args['dismissal_expiration'];
+			$dismissible = $args['dismissible'];
+			$expiration  = $args['dismissal_expiration'];
 
 			$notice = new Notice( $args['id'] );
 			$notice->set_manager( $this );
 			$notice->set_content( $args['content'] );
 			$notice->display_on( $args['display_on'] );
-			if ( empty( $expiration ) ) {
+			$notice->set_type( $args['type'] );
+			if ( empty( $expiration ) || ! $dismissible ) {
 				$notice->dismissible_persistent = false;
 			}
 			$notice->keep_active_on = $args['keep_active_on'];
