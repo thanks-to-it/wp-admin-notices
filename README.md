@@ -16,3 +16,15 @@ add_action( 'admin_notices', function () {
 	) );
 } );
 ```
+
+# create_notice() parameters
+
+|Arg                |Description                    |type    |Default          |              
+|----------------|-------------------------------|--------|---------------------------|
+|**id**| Notice ID            |`string`              |`''`
+|**type**| Notice type          |`string`              |`'notice-info'`
+|**content**|Notice content   |`string`              |`''` 
+|**display_on**|Situations where/when the notice should be displayed| `array` | `array()` 
+|**dismissible**|If notice can be closed   |`boolean`              |`true`|
+|**dismissal_expiration**|Time in seconds the notice will be hidden after users close it| `int` | `1 * MONTH_IN_SECONDS`
+|**keep_active_on**|Keep notice active after display_on triggers until users close it| `array` | `array( 'activated_plugin', 'updated_plugin' )`
