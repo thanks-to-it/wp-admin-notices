@@ -26,7 +26,7 @@ add_action( 'admin_notices', function () {
 |**content**|Notice content   |`string`              |`''` 
 |**display_on**|Situations where/when the notice should be displayed| `array` | `array()` 
 |**dismissible**|If notice can be persistently closed   |`boolean`              |`true`|
-|**dismissal_expiration**|Time in seconds the notice will be hidden after users close it| `int` | `1 * MONTH_IN_SECONDS`
+|**dismissal_expiration**|Time in seconds the notice will be persistently hidden after users close it| `int` | `1 * MONTH_IN_SECONDS`
 |**keep_active_on**|Keep notice active after display_on triggers until users close it| `array` | `array( 'activated_plugin', 'updated_plugin' )`
 
 # display_on parameters
