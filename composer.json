@@ -18,7 +18,6 @@
     "preferred-install": "dist",
     "optimize-autoloader": true
   },
-  "type": "wordpress-plugin",
   "require": {
     "php": ">=5.3.2",
     "composer/installers": ">=v1.2.0"
@@ -38,6 +37,6 @@
     "files": [
       "src/functions/functions.php"
     ],
-    "exclude-from-classmap": ["/Tests/", "/test/", "/tests/"]
+    "exclude-from-classmap": ["/Tests/", "/test/", "/tests/", "wp-admin-notices-ttwp.php"]
   }
 }
