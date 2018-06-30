@@ -1,5 +1,7 @@
 # WP Admin Notices - TTWP
 
+## Usage
+
 ```php
 add_action( 'admin_notices', function () {
 	$notices_manager = \ThanksToWP\WPAN\get_notices_manager();
