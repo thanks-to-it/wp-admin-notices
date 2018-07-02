@@ -36,19 +36,19 @@ if ( ! class_exists( 'ThanksToWP\WPAN\Notice' ) ) {
 		private $display_rules;
 
 		/**
-		 * @var NoticesManager
+		 * @var Notices_Manager
 		 */
 		private $manager;
 
 		/**
-		 * @return NoticesManager
+		 * @return Notices_Manager
 		 */
 		public function get_manager() {
 			return $this->manager;
 		}
 
 		/**
-		 * @param NoticesManager $manager
+		 * @param Notices_Manager $manager
 		 */
 		public function set_manager( $manager ) {
 			$this->manager = $manager;

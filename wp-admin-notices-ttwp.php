@@ -50,9 +50,9 @@ if ( ! class_exists( 'WPANTTWP_Plugin' ) ) {
 			require_once "vendor/autoload.php";
 			//$manager = new \ThanksToWP\WPAN\NoticesManager();
 
-			add_action( 'wp_ajax_' . 'wpanttwp_dismiss_persist', array( 'ThanksToWP\WPAN\NoticesManager', 'ajax_dismiss' ) );
-			add_action( 'activated_plugin', array( 'ThanksToWP\WPAN\NoticesManager', 'set_activated_plugin' ) );
-			add_action( 'upgrader_process_complete', array( 'ThanksToWP\WPAN\NoticesManager', 'set_upgrader_process' ), 10, 2 );
+			add_action( 'wp_ajax_' . 'wpanttwp_dismiss_persist', array( 'Notices_Manager', 'ajax_dismiss' ) );
+			add_action( 'activated_plugin', array( 'Notices_Manager', 'set_activated_plugin' ) );
+			add_action( 'upgrader_process_complete', array( 'Notices_Manager', 'set_upgrader_process' ), 10, 2 );
 
 			add_action( 'admin_notices', function () {
 				$notices_manager = \ThanksToWP\WPAN\get_notices_manager();

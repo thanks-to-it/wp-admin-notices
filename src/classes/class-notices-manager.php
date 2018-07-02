@@ -13,9 +13,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 } // Exit if accessed directly
 
-if ( ! class_exists( 'ThanksToWP\WPAN\NoticesManager' ) ) {
+if ( ! class_exists( 'ThanksToWP\WPAN\Notices_Manager' ) ) {
 
-	class NoticesManager {
+	class Notices_Manager {
 
 		public static $activated_plugins = array();
 		public static $upgrader_process_object;
@@ -36,7 +36,8 @@ if ( ! class_exists( 'ThanksToWP\WPAN\NoticesManager' ) ) {
 				'enabled'              => true,
 				'keep_active_on'       => array( 'activated_plugin', 'updated_plugin' ),
 				'display_on'           => array(
-					'request'          => array(//array( 'key' => 'show_notice', 'value' => '1' ),
+					'request'          => array(
+						array( 'key' => 'show_notice', 'value' => '1' ),
 					),
 					'screen_id'        => array(), // array( 'plugins' ),
 					'activated_plugin' => array(), // array( 'plugin-a' ),

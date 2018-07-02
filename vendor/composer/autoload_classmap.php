@@ -99,6 +99,6 @@ return array(
     'ThanksToWP\\WPAN\\Display_Rules' => $baseDir . '/src/classes/class-display-rules.php',
     'ThanksToWP\\WPAN\\Javascript' => $baseDir . '/src/classes/class-javascript.php',
     'ThanksToWP\\WPAN\\Notice' => $baseDir . '/src/classes/class-notice.php',
-    'ThanksToWP\\WPAN\\NoticesManager' => $baseDir . '/src/classes/class-notices-manager.php',
+    'ThanksToWP\\WPAN\\Notices_Manager' => $baseDir . '/src/classes/class-notices-manager.php',
     'WeDevs_Settings_API' => $vendorDir . '/tareq1988/wordpress-settings-api-class/src/class.settings-api.php',
 );

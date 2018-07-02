@@ -22,11 +22,11 @@ if ( ! class_exists( 'ThanksToWP\WPAN\Javascript' ) ) {
 		}*/
 
 		/**
-		 * @var NoticesManager
+		 * @var Notices_Manager
 		 */
 		private $manager;
 
-		public function __construct( NoticesManager $manager ) {
+		public function __construct( Notices_Manager $manager ) {
 			$this->manager = $manager;
 		}
 

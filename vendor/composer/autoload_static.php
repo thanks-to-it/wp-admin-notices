@@ -118,7 +118,7 @@ class ComposerStaticInit1a5351d4a3ca0db7cc4cf83d851272c4
         'ThanksToWP\\WPAN\\Display_Rules' => __DIR__ . '/../..' . '/src/classes/class-display-rules.php',
         'ThanksToWP\\WPAN\\Javascript' => __DIR__ . '/../..' . '/src/classes/class-javascript.php',
         'ThanksToWP\\WPAN\\Notice' => __DIR__ . '/../..' . '/src/classes/class-notice.php',
-        'ThanksToWP\\WPAN\\NoticesManager' => __DIR__ . '/../..' . '/src/classes/class-notices-manager.php',
+        'ThanksToWP\\WPAN\\Notices_Manager' => __DIR__ . '/../..' . '/src/classes/class-notices-manager.php',
         'WeDevs_Settings_API' => __DIR__ . '/..' . '/tareq1988/wordpress-settings-api-class/src/class.settings-api.php',
     );
 
