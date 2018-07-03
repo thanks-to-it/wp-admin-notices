@@ -52,8 +52,8 @@ add_action( 'admin_notices', function () {
 add_action( 'admin_notices', function () {
 	$notices_manager = \ThanksToWP\WPAN\get_notices_manager();
 	$notices_manager->create_notice( array(
-		'id'         => '1-week-notice',
-		'content'    => '<p>1 week notice</p>',	
+		'id'         => 'plugins-page-notice',
+		'content'    => '<p>plugins page notice</p>',	
 		'display_on' => array(
 			'screen_id' => array( 'plugins' ),			
 		)
