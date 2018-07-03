@@ -66,8 +66,8 @@ add_action( 'admin_notices', function () {
 add_action( 'admin_notices', function () {
 	$notices_manager = \ThanksToWP\WPAN\get_notices_manager();
 	$notices_manager->create_notice( array(
-		'id'         => 'plugins-page-notice',
-		'content'    => '<p>plugins page notice</p>',	
+		'id'         => 'akismet-notice',
+		'content'    => '<p>Akismet notice</p>',	
 		'display_on' => array(
 			'activated_plugin' => array('akismet/akismet.php')
 		)
