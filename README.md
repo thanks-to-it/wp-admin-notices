@@ -61,7 +61,7 @@ add_action( 'admin_notices', function () {
 } );
 ```
 
-### Create a notice that will be displayed after the **Akismet** plugin gets activated
+### Create a notice that will be displayed after the [Akismet](https://br.wordpress.org/plugins/akismet/) plugin gets activated
 ```php
 add_action( 'admin_notices', function () {
 	$notices_manager = \ThanksToWP\WPAN\get_notices_manager();
