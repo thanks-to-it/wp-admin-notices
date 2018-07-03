@@ -76,7 +76,7 @@ add_action( 'admin_notices', function () {
 ```
 
 ## Important Considerations
-In order to make it work perfectly, you need to initialize it like this:
+In order to make it work perfectly, you need to **initialize** it like this:
 ```php
 add_action( 'wp_ajax_' . 'wpanttwp_dismiss_persist', array( 'ThanksToWP\WPAN\Notices_Manager', 'ajax_dismiss' ) );
 add_action( 'activated_plugin', array( 'ThanksToWP\WPAN\Notices_Manager', 'set_activated_plugin' ) );
