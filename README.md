@@ -4,7 +4,7 @@ An easy and convenient way to create WordPress admin notices that can be closed 
 * Display your notice on specific situations, like screen ids, requests, even if some plugin gets updated or activated
 * Create your own special cases where/when your notice should be displayed
 
-## Usage
+## Simple Usage
 
 ```php
 add_action( 'admin_notices', function () {
