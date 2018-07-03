@@ -16,24 +16,17 @@ add_action( 'admin_notices', function () {
 } );
 ```
 
-# create_notice() parameters
+## create_notice() parameters
 
-|Arg                |Description                    |type    |Default          |              
-|----------------|-------------------------------|--------|---------------------------|
-|**id**| Notice ID            |`string`              |`''`
-|**type**| Notice type          |`string`              |`'notice-info'`
-|**content**|Notice content   |`string`              |`''` 
-|**display_on**|Situations where/when the notice should be displayed| `array` | `array()` 
-|**dismissible**|If notice can be persistently closed   |`boolean`              |`true`|
-|**dismissal_expiration**|Time in seconds the notice will be persistently hidden after users close it| `int` | `1 * MONTH_IN_SECONDS`
-|**keep_active_on**|Keep notice active after display_on triggers until users close it| `array` | `array( 'activated_plugin', 'updated_plugin' )`
-
-# display_on parameters
-Situations where/when the notice should be displayed
-
-|Arg                |Description                    |type    |Example |               
-|----------------|-------------------------------|--------|---------------------------|
-|**request**| Displays on $_GET or $_POST values            |`array`              |`'request' => array( array( 'key' => 'show_notice', 'value' => '1'), array( 'key' => 'show_notice', 'value' => 'true') )`|
-|**screen_id**| Displays on Admin Screen Ids            |`array`              |`array( 'plugins' )`|
-|**activated_plugin**| Displays if some plugin gets activated            |`array`              |`array('akismet/akismet.php')`|
-|**updated_plugin**| Displays if some plugin gets updated|`array`              |`array('akismet/akismet.php')`|
+* **id** (String) - Identifies the notice.
+* **type** (String) - The type of notice, used on notice class in order to setup its color. Possible values are `'notice-info'`, `'notice-warning'`, `'notice-success'`, `'notice-error'`, `'notice-info'`. Default value is `'notice-info'`.
+* **content** (String) - Notice content.
+* **dismissible** (Boolean) - If notice should be dismissible. In other words, if you can close it. Default is `true`.
+* **dismissal_expiration** (int) - How long in seconds the notice will keep closed. Values bigger than zero will make the notice persist after closed. If you set 0, it will no longer persist. Default is `MONTH_IN_SECONDS`.
+* **display_on** (array) - Situations where/when the notice should be displayed. Possible values below:
+  - **screen_id** (array). Displays the notice on specific admin screen ids. Example: `'screen_id' => array( 'plugins' )`.
+  - **activated_plugin** (array). Displays if some plugin gets activated. Example: `'activated_plugin' => array('akismet/akismet.php')`.
+  - **updated_plugin** (array). Displays if some plugin gets updated. Example: `'updated_plugin' => array('akismet/akismet.php')`.
+  - **request** (array) - Displays on $_GET or $_POST values. Note: It takes an array of arrays with `'key'` and `'value'` parameters. Example:
+`'request' => array( array( 'key' => 'show_notice', 'value' => '1' ), ) `.
+* **keep_active_on** (array) - Keeps the notice always opened once the display_on requirements are met, until the user close the notice. Default value is `array( 'activated_plugin', 'updated_plugin' )`,
