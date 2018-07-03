@@ -16,6 +16,8 @@ add_action( 'admin_notices', function () {
 } );
 ```
 
+**Note:** By default, notices are persistent
+
 ## create_notice() parameters
 
 * **id** (String) - Identifies the notice.
@@ -30,3 +32,17 @@ add_action( 'admin_notices', function () {
   - **request** (array) - Displays on $_GET or $_POST values. Note: It takes an array of arrays with `'key'` and `'value'` parameters. Example:
 `'request' => array( array( 'key' => 'show_notice', 'value' => '1' ), ) `.
 * **keep_active_on** (array) - Keeps the notice always opened once the display_on requirements are met, until the user close the notice. Default value is `array( 'activated_plugin', 'updated_plugin' )`,
+
+## Examples
+
+### Create a notice closed for 1 week
+```php
+add_action( 'admin_notices', function () {
+	$notices_manager = \ThanksToWP\WPAN\get_notices_manager();
+	$notices_manager->create_notice( array(
+		'id'         => '1-week-notice',
+		'content'    => '<p>1 week notice</p>',	
+		'dismissal_expiration' => WEEK_IN_SECONDS,
+	) );
+} );
+```
