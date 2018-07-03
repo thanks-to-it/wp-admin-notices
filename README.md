@@ -60,3 +60,17 @@ add_action( 'admin_notices', function () {
 	) );
 } );
 ```
+
+### Create a notice that will be displayed after the **Akismet** plugin gets activated
+```php
+add_action( 'admin_notices', function () {
+	$notices_manager = \ThanksToWP\WPAN\get_notices_manager();
+	$notices_manager->create_notice( array(
+		'id'         => 'plugins-page-notice',
+		'content'    => '<p>plugins page notice</p>',	
+		'display_on' => array(
+			'activated_plugin' => array('akismet/akismet.php')
+		)
+	) );
+} );
+```
