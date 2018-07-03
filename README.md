@@ -1,6 +1,6 @@
 # WP Admin Notices - TTWP
 An easy and convenient way to create WordPress admin notices that can be closed persistently. Besides that it has some cool features:
-* Make your notice hidden only for the user who closed it.
+* Make your notice keep hidden only for the user who closed it.
 * Display your notice on specific situations, like screen ids, requests, even if some plugin gets updated or activated
 * Create your own special cases where/when your notice should be displayed
 
