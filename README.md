@@ -46,3 +46,17 @@ add_action( 'admin_notices', function () {
 	) );
 } );
 ```
+
+### Create a notice that will be displayed on plugins page only
+```php
+add_action( 'admin_notices', function () {
+	$notices_manager = \ThanksToWP\WPAN\get_notices_manager();
+	$notices_manager->create_notice( array(
+		'id'         => '1-week-notice',
+		'content'    => '<p>1 week notice</p>',	
+		'display_on' => array(
+			'screen_id' => array( 'plugins' ),			
+		)
+	) );
+} );
+```
