@@ -35,7 +35,7 @@ add_action( 'admin_notices', function () {
 
 ## Examples
 
-### Create a notice closed for 1 week
+### Create a notice that will be closed for 1 week
 ```php
 add_action( 'admin_notices', function () {
 	$notices_manager = \ThanksToWP\WPAN\get_notices_manager();
