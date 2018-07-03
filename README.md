@@ -16,7 +16,7 @@ add_action( 'admin_notices', function () {
 } );
 ```
 
-**Note:** By default, notices are persistent
+**Note:** By default, this library will make notices persist, meaning they will not be displayed again after user close them, unless they expire
 
 ## create_notice() parameters
 
