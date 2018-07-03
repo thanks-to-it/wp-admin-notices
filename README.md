@@ -82,5 +82,5 @@ add_action( 'wp_ajax_' . 'wpanttwp_dismiss_persist', array( 'ThanksToWP\WPAN\Not
 add_action( 'activated_plugin', array( 'ThanksToWP\WPAN\Notices_Manager', 'set_activated_plugin' ) );
 add_action( 'upgrader_process_complete', array( 'ThanksToWP\WPAN\Notices_Manager', 'set_upgrader_process' ), 10, 2 );
 ```
-And it's important to make these calls before any other hook on your plugin.
+And it's **important** to make these calls before **any other hook** on your plugin/theme.
 But don't worry, this library will be loaded only when it's necessary, as it's being called inside the proper hooks
