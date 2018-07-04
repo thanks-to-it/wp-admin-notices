@@ -67,7 +67,7 @@ if ( ! class_exists( 'ThanksToWP\WPAN\Notice' ) ) {
 		public function keep_active_if_necessary( $display_on_key ) {
 			if ( in_array( $display_on_key, $this->keep_active_on ) ) {
 				$ids   = get_transient( "ttwpwpan_active_notices" );
-				$ids = $ids===false ? array() : $ids;
+				$ids   = $ids === false ? array() : $ids;
 				$count = count( $ids );
 				$ids[] = $this->get_id();
 				$ids   = array_unique( $ids );
@@ -79,7 +79,7 @@ if ( ! class_exists( 'ThanksToWP\WPAN\Notice' ) ) {
 
 		public function is_active() {
 			$ids   = get_transient( "ttwpwpan_active_notices" );
-			$ids = $ids===false ? array() : $ids;
+			$ids   = $ids === false ? array() : $ids;
 			$found = array_search( $this->get_id(), $ids );
 			if ( $found !== false ) {
 				return true;
@@ -90,7 +90,7 @@ if ( ! class_exists( 'ThanksToWP\WPAN\Notice' ) ) {
 
 		public function remove_from_active() {
 			$ids   = get_transient( "ttwpwpan_active_notices" );
-			$ids = $ids===false ? array() : $ids;
+			$ids   = $ids === false ? array() : $ids;
 			$found = array_search( $this->get_id(), $ids );
 			if ( $found !== false ) {
 				unset( $ids[ $found ] );
@@ -165,7 +165,9 @@ if ( ! class_exists( 'ThanksToWP\WPAN\Notice' ) ) {
 			$id     = $this->get_id();
 			$user   = wp_get_current_user();
 			$prefix = self::$prefix;
-			set_transient( "{$prefix}_dismiss_{$id}_{$user->ID}", true, $this->dismiss_expiration );
+			if ( $this->dismiss_expiration > 0 ) {
+				set_transient( "{$prefix}_dismiss_{$id}_{$user->ID}", true, $this->dismiss_expiration );
+			}
 			//$this->remove_from_active();
 		}
 
@@ -173,15 +175,17 @@ if ( ! class_exists( 'ThanksToWP\WPAN\Notice' ) ) {
 			$dismissible_class      = $this->dismissible ? 'is-dismissible' : '';
 			$dismissible_persistent = $this->dismissible_persistent ? 'persistent' : '';
 			$id                     = $this->id;
+			$expiration             = $this->dismiss_expiration;
 
 			return sprintf(
-				'<div class="notice %2$s %3$s %4$s %5$s %6$s" data-id="%5$s" data-notice-id="%5$s">%1$s</div>',
+				'<div class="notice %2$s %3$s %4$s %5$s %6$s" data-id="%5$s" data-expiration="%7$s" data-notice-id="%5$s">%1$s</div>',
 				$this->get_content(),
 				esc_attr( $this->get_type() ),
 				esc_attr( $dismissible_class ),
 				esc_attr( $dismissible_persistent ),
 				esc_attr( $id ),
-				esc_attr( self::$prefix )
+				esc_attr( self::$prefix ),
+				esc_attr( $expiration )
 			);
 		}
 

@@ -36,8 +36,7 @@ if ( ! class_exists( 'ThanksToWP\WPAN\Notices_Manager' ) ) {
 				'enabled'              => true,
 				'keep_active_on'       => array( 'activated_plugin', 'updated_plugin' ),
 				'display_on'           => array(
-					'request'          => array(
-						array( 'key' => 'show_notice', 'value' => '1' ),
+					'request'          => array(//array( 'key' => 'show_notice', 'value' => '1' ),
 					),
 					'screen_id'        => array(), // array( 'plugins' ),
 					'activated_plugin' => array(), // array( 'plugin-a' ),
@@ -45,9 +44,11 @@ if ( ! class_exists( 'ThanksToWP\WPAN\Notices_Manager' ) ) {
 				)
 			) );
 			$dismissible = $args['dismissible'];
-			$expiration  = $args['dismissal_expiration'];
+			$expiration  = filter_var( $args['dismissal_expiration'], FILTER_SANITIZE_NUMBER_INT );
 
+			// Notice
 			$notice = new Notice( $args['id'] );
+			$notice->dismiss_expiration = $expiration;
 			$notice->set_manager( $this );
 			$notice->set_content( $args['content'] );
 			$notice->display_on( $args['display_on'] );

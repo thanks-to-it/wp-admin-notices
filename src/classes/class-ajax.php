@@ -20,8 +20,9 @@ if ( ! class_exists( 'ThanksToWP\WPAN\Ajax' ) ) {
 				wp_die();
 			}
 
-			$notice_id = $_REQUEST['id'];
-			$notice    = new Notice( $notice_id );
+			$notice_id                  = $_REQUEST['id'];
+			$notice                     = new Notice( $notice_id );
+			$notice->dismiss_expiration = $_REQUEST['expiration'];
 			$notice->dismiss();
 			die();
 		}

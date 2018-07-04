@@ -48,25 +48,25 @@ if ( ! class_exists( 'WPANTTWP_Plugin' ) ) {
 		 */
 		public function init() {
 			require_once "vendor/autoload.php";
-			//$manager = new \ThanksToWP\WPAN\NoticesManager();
 
-			add_action( 'wp_ajax_' . 'wpanttwp_dismiss_persist', array( 'Notices_Manager', 'ajax_dismiss' ) );
-			add_action( 'activated_plugin', array( 'Notices_Manager', 'set_activated_plugin' ) );
-			add_action( 'upgrader_process_complete', array( 'Notices_Manager', 'set_upgrader_process' ), 10, 2 );
+			add_action( 'wp_ajax_' . 'wpanttwp_dismiss_persist', array( 'ThanksToWP\WPAN\Notices_Manager', 'ajax_dismiss' ) );
+			add_action( 'activated_plugin', array( 'ThanksToWP\WPAN\Notices_Manager', 'set_activated_plugin' ) );
+			add_action( 'upgrader_process_complete', array( 'ThanksToWP\WPAN\Notices_Manager', 'set_upgrader_process' ), 10, 2 );
 
 			add_action( 'admin_notices', function () {
 				$notices_manager = \ThanksToWP\WPAN\get_notices_manager();
 				$notices_manager->create_notice( array(
-					'id'         => 'my_notice3',
+					'id'         => 'my_notice8',
 					'content'    => '<p>My Notice</p>',
 					'display_on' => array(
-						'screen_id' => array( 'plugins' ),
-						/*'request'   => array(
+						'activated_plugin' => array('akismet/akismet.php'),
+						/*'screen_id' => array( 'plugins' ),
+						'request'   => array(
 							array( 'key' => 'show_notice', 'value' => '1' ),
 							array( 'key' => 'show_notice', 'value' => 'true' )
 						),*/
 						//'activated_plugin' => array( 'alg-ajax-search/ajax-product-search-woocommerce.php' ),
-						'updated_plugin' => array('akismet/akismet.php')
+						//'updated_plugin' => array('akismet/akismet.php')
 					)
 				) );
 			} );

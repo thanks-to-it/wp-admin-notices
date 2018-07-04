@@ -51,9 +51,10 @@ if ( ! class_exists( 'ThanksToWP\WPAN\Javascript' ) ) {
                         }
                         var httpRequest = new XMLHttpRequest();
                         var id = notice.getAttribute('data-notice-id');
+                        var expiration = notice.getAttribute('data-expiration');
                         httpRequest.open('POST', ajaxurl)
                         httpRequest.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
-                        httpRequest.send('action=' + encodeURIComponent('<?php echo $ajax->action_dismiss_persistently ?>') + '&id=' + encodeURIComponent(id) + '&security=' + encodeURIComponent('<?php echo wp_create_nonce( $ajax->action_dismiss_persistently_security ) ?>'));
+                        httpRequest.send('action=' + encodeURIComponent('<?php echo $ajax->action_dismiss_persistently ?>') + '&id=' + encodeURIComponent(id) + '&expiration=' + encodeURIComponent(expiration) + '&security=' + encodeURIComponent('<?php echo wp_create_nonce( $ajax->action_dismiss_persistently_security ) ?>'));
                     },
                 };
                 document.addEventListener('DOMContentLoaded', function () {

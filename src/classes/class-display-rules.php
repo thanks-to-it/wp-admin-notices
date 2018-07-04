@@ -147,7 +147,7 @@ if ( ! class_exists( 'ThanksToWP\WPAN\Display_Rules' ) ) {
 		public function rule_activated_plugin_match( $match = false, $plugins ) {
 			$activated_plugins = get_transient( 'ttwpwpan_activated_plugins' );
 			$activated_plugins = $activated_plugins === false ? array() : $activated_plugins;
-			$plugins           = $this->replace_self_by_plugin_basename( $plugins );
+			//$plugins           = $this->replace_self_by_plugin_basename( $plugins );
 			if ( count( array_intersect( $activated_plugins, $plugins ) ) > 0 ) {
 				return true;
 			} else {
