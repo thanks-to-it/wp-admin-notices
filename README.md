@@ -26,7 +26,7 @@ add_action( 'activated_plugin', array( 'ThanksToIT\WPAN\Notices_Manager', 'set_a
 add_action( 'upgrader_process_complete', array( 'ThanksToIT\WPAN\Notices_Manager', 'set_upgrader_process' ), 10, 2 );
 ```
 And it's **important** to make these calls before **any other hook** on your plugin/theme.
-But don't worry, this library will be loaded only when it's necessary, as it's being called inside the proper hooks
+But don't worry, this library will be loaded only when it's necessary, as it's being called on the proper hooks
 
 ## create_notice() parameters
 
