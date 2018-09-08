@@ -55,6 +55,7 @@ if ( ! class_exists( 'ThanksToIT\WPAN\Notices_Manager' ) ) {
 			$notice->set_type( $args['type'] );
 			if ( empty( $expiration ) || ! $dismissible ) {
 				$notice->dismissible_persistent = false;
+				$notice->dismissible=false;
 			}
 			$notice->keep_active_on = $args['keep_active_on'];
 			$notice->enable();
