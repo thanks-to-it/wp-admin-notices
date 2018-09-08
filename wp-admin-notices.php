@@ -1,7 +1,8 @@
 <?php
 /**
- * Plugin Name: WP Admin Notices - Tester
- * Description: WP Admin Notices
+ * Plugin Name: WP Admin Notices
+ * Plugin URI: https://github.com/thanks-to-it/wp-admin-notices
+ * Description: Display WordPress Admin Notices easily
  * Version: 1.0.0
  * Author: Thanks to IT
  * Author URI: https://github.com/thanks-to-it
