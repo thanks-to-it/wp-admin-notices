@@ -1,6 +1,6 @@
 <?php
 
-namespace ThanksToWP\WPAN;
+namespace ThanksToIT\WPAN;
 
 /**
  * @return Notices_Manager

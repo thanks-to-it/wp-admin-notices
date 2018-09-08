@@ -7,9 +7,9 @@
  * @author  Pablo S G Pacheco
  */
 
-namespace ThanksToWP\WPAN;
+namespace ThanksToIT\WPAN;
 
-if ( ! class_exists( 'ThanksToWP\WPAN\Javascript' ) ) {
+if ( ! class_exists( 'ThanksToIT\WPAN\Javascript' ) ) {
 
 	class Javascript {
 		/**

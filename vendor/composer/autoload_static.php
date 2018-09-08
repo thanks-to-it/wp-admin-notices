@@ -114,11 +114,11 @@ class ComposerStaticInit1a5351d4a3ca0db7cc4cf83d851272c4
         'Composer\\Installers\\YawikInstaller' => __DIR__ . '/..' . '/composer/installers/src/Composer/Installers/YawikInstaller.php',
         'Composer\\Installers\\ZendInstaller' => __DIR__ . '/..' . '/composer/installers/src/Composer/Installers/ZendInstaller.php',
         'Composer\\Installers\\ZikulaInstaller' => __DIR__ . '/..' . '/composer/installers/src/Composer/Installers/ZikulaInstaller.php',
-        'ThanksToWP\\WPAN\\Ajax' => __DIR__ . '/../..' . '/src/classes/class-ajax.php',
-        'ThanksToWP\\WPAN\\Display_Rules' => __DIR__ . '/../..' . '/src/classes/class-display-rules.php',
-        'ThanksToWP\\WPAN\\Javascript' => __DIR__ . '/../..' . '/src/classes/class-javascript.php',
-        'ThanksToWP\\WPAN\\Notice' => __DIR__ . '/../..' . '/src/classes/class-notice.php',
-        'ThanksToWP\\WPAN\\Notices_Manager' => __DIR__ . '/../..' . '/src/classes/class-notices-manager.php',
+        'ThanksToIT\\WPAN\\Ajax' => __DIR__ . '/../..' . '/src/classes/class-ajax.php',
+        'ThanksToIT\\WPAN\\Display_Rules' => __DIR__ . '/../..' . '/src/classes/class-display-rules.php',
+        'ThanksToIT\\WPAN\\Javascript' => __DIR__ . '/../..' . '/src/classes/class-javascript.php',
+        'ThanksToIT\\WPAN\\Notice' => __DIR__ . '/../..' . '/src/classes/class-notice.php',
+        'ThanksToIT\\WPAN\\Notices_Manager' => __DIR__ . '/../..' . '/src/classes/class-notices-manager.php',
         'WeDevs_Settings_API' => __DIR__ . '/..' . '/tareq1988/wordpress-settings-api-class/src/class.settings-api.php',
     );
 

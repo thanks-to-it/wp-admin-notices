@@ -7,9 +7,9 @@
  * @author  Pablo S G Pacheco
  */
 
-namespace ThanksToWP\WPAN;
+namespace ThanksToIT\WPAN;
 
-if ( ! class_exists( 'ThanksToWP\WPAN\Display_Rules' ) ) {
+if ( ! class_exists( 'ThanksToIT\WPAN\Display_Rules' ) ) {
 
 	class Display_Rules {
 		/**
@@ -71,10 +71,10 @@ if ( ! class_exists( 'ThanksToWP\WPAN\Display_Rules' ) ) {
 			foreach ( $rules as $key => $value ) {
 				if ( ! empty( $value ) ) {
 					if ( method_exists( $this, "rule_{$key}_match" ) ) {
-						add_filter( "ttwpwpan_rule_{$key}", array( $this, "rule_{$key}_match" ), 10, 2 );
+						add_filter( "tttwpan_rule_{$key}", array( $this, "rule_{$key}_match" ), 10, 2 );
 					}
 
-					$match = apply_filters( "ttwpwpan_rule_{$key}", false, $value );
+					$match = apply_filters( "tttwpan_rule_{$key}", false, $value );
 
 					if ( ! $match ) {
 						if ( in_array( $key, $this->notice->keep_active_on ) ) {
@@ -125,7 +125,7 @@ if ( ! class_exists( 'ThanksToWP\WPAN\Display_Rules' ) ) {
 		}
 
 		public function rule_updated_plugin_match( $match = false, $plugins ) {
-			$options = get_transient( 'ttwpwpan_upgrader_options' );
+			$options = get_transient( 'tttwpan_upgrader_options' );
 			$options = $options === false ? array() : $options;
 			//$plugins = $this->replace_self_by_plugin_basename( $plugins );
 
@@ -145,7 +145,7 @@ if ( ! class_exists( 'ThanksToWP\WPAN\Display_Rules' ) ) {
 		}
 
 		public function rule_activated_plugin_match( $match = false, $plugins ) {
-			$activated_plugins = get_transient( 'ttwpwpan_activated_plugins' );
+			$activated_plugins = get_transient( 'tttwpan_activated_plugins' );
 			$activated_plugins = $activated_plugins === false ? array() : $activated_plugins;
 			//$plugins           = $this->replace_self_by_plugin_basename( $plugins );
 			if ( count( array_intersect( $activated_plugins, $plugins ) ) > 0 ) {

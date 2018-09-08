@@ -8,7 +8,7 @@ An easy and convenient way to create WordPress admin notices that can be closed 
 
 ```php
 add_action( 'admin_notices', function () {
-	$notices_manager = \ThanksToWP\WPAN\get_notices_manager();
+	$notices_manager = \ThanksToIT\WPAN\get_notices_manager();
 	$notices_manager->create_notice( array(
 		'id'         => 'my-notice',
 		'content'    => '<p>My Notice</p>',		
@@ -38,7 +38,7 @@ add_action( 'admin_notices', function () {
 ### Create a notice that will be closed for 1 week
 ```php
 add_action( 'admin_notices', function () {
-	$notices_manager = \ThanksToWP\WPAN\get_notices_manager();
+	$notices_manager = \ThanksToIT\WPAN\get_notices_manager();
 	$notices_manager->create_notice( array(
 		'id'         => '1-week-notice',
 		'content'    => '<p>1 week notice</p>',	
@@ -50,7 +50,7 @@ add_action( 'admin_notices', function () {
 ### Create a notice that will be displayed on plugins page only
 ```php
 add_action( 'admin_notices', function () {
-	$notices_manager = \ThanksToWP\WPAN\get_notices_manager();
+	$notices_manager = \ThanksToIT\WPAN\get_notices_manager();
 	$notices_manager->create_notice( array(
 		'id'         => 'plugins-page-notice',
 		'content'    => '<p>plugins page notice</p>',	
@@ -64,7 +64,7 @@ add_action( 'admin_notices', function () {
 ### Create a notice that will be displayed after the [Akismet](https://br.wordpress.org/plugins/akismet/) plugin gets activated
 ```php
 add_action( 'admin_notices', function () {
-	$notices_manager = \ThanksToWP\WPAN\get_notices_manager();
+	$notices_manager = \ThanksToIT\WPAN\get_notices_manager();
 	$notices_manager->create_notice( array(
 		'id'         => 'akismet-notice',
 		'content'    => '<p>Akismet notice</p>',	
@@ -78,9 +78,9 @@ add_action( 'admin_notices', function () {
 ## Initialization
 In order to make it work perfectly, you need to **initialize** it like this:
 ```php
-add_action( 'wp_ajax_' . 'wpanttwp_dismiss_persist', array( 'ThanksToWP\WPAN\Notices_Manager', 'ajax_dismiss' ) );
-add_action( 'activated_plugin', array( 'ThanksToWP\WPAN\Notices_Manager', 'set_activated_plugin' ) );
-add_action( 'upgrader_process_complete', array( 'ThanksToWP\WPAN\Notices_Manager', 'set_upgrader_process' ), 10, 2 );
+add_action( 'wp_ajax_' . 'tttwpan_dismiss_persist', array( 'ThanksToIT\WPAN\Notices_Manager', 'ajax_dismiss' ) );
+add_action( 'activated_plugin', array( 'ThanksToIT\WPAN\Notices_Manager', 'set_activated_plugin' ) );
+add_action( 'upgrader_process_complete', array( 'ThanksToIT\WPAN\Notices_Manager', 'set_upgrader_process' ), 10, 2 );
 ```
 And it's **important** to make these calls before **any other hook** on your plugin/theme.
 But don't worry, this library will be loaded only when it's necessary, as it's being called inside the proper hooks

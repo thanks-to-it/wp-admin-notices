@@ -7,20 +7,20 @@
  * @author  Pablo S G Pacheco
  */
 
-namespace ThanksToWP\WPAN;
+namespace ThanksToIT\WPAN;
 
 use MongoDB\Driver\Manager;
 
-if ( ! class_exists( 'ThanksToWP\WPAN\Notice' ) ) {
+if ( ! class_exists( 'ThanksToIT\WPAN\Notice' ) ) {
 
 	class Notice {
-		private $id = 'wp-admin-notice-ttwp';
+		private $id = 'ttt-wp-admin-notice';
 		private $content = '<p></p>';
 		private $notice_html = '';
 		private $notice_type = 'notice-info';
 		public $dismissible = true;
 		public $dismissible_persistent = true;
-		public static $prefix = 'ttwpwpan';
+		public static $prefix = 'tttwpan';
 		public $dismiss_expiration = MONTH_IN_SECONDS;
 		public $valid = true;
 		public $keep_active_on = array( 'activated_plugin', 'updated_plugin' );
@@ -66,19 +66,19 @@ if ( ! class_exists( 'ThanksToWP\WPAN\Notice' ) ) {
 
 		public function keep_active_if_necessary( $display_on_key ) {
 			if ( in_array( $display_on_key, $this->keep_active_on ) ) {
-				$ids   = get_transient( "ttwpwpan_active_notices" );
+				$ids   = get_transient( "tttwpan_active_notices" );
 				$ids   = $ids === false ? array() : $ids;
 				$count = count( $ids );
 				$ids[] = $this->get_id();
 				$ids   = array_unique( $ids );
 				if ( count( $ids ) != $count ) {
-					set_transient( "ttwpwpan_active_notices", $ids, MONTH_IN_SECONDS );
+					set_transient( "tttwpan_active_notices", $ids, MONTH_IN_SECONDS );
 				}
 			}
 		}
 
 		public function is_active() {
-			$ids   = get_transient( "ttwpwpan_active_notices" );
+			$ids   = get_transient( "tttwpan_active_notices" );
 			$ids   = $ids === false ? array() : $ids;
 			$found = array_search( $this->get_id(), $ids );
 			if ( $found !== false ) {
@@ -89,13 +89,13 @@ if ( ! class_exists( 'ThanksToWP\WPAN\Notice' ) ) {
 		}
 
 		public function remove_from_active() {
-			$ids   = get_transient( "ttwpwpan_active_notices" );
+			$ids   = get_transient( "tttwpan_active_notices" );
 			$ids   = $ids === false ? array() : $ids;
 			$found = array_search( $this->get_id(), $ids );
 			if ( $found !== false ) {
 				unset( $ids[ $found ] );
 			}
-			set_transient( "ttwpwpan_active_notices", $ids, MONTH_IN_SECONDS );
+			set_transient( "tttwpan_active_notices", $ids, MONTH_IN_SECONDS );
 		}
 
 		private static function handle_javascript() {

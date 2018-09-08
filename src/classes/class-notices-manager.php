@@ -7,13 +7,13 @@
  * @author  Pablo S G Pacheco
  */
 
-namespace ThanksToWP\WPAN;
+namespace ThanksToIT\WPAN;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 } // Exit if accessed directly
 
-if ( ! class_exists( 'ThanksToWP\WPAN\Notices_Manager' ) ) {
+if ( ! class_exists( 'ThanksToIT\WPAN\Notices_Manager' ) ) {
 
 	class Notices_Manager {
 
@@ -64,13 +64,13 @@ if ( ! class_exists( 'ThanksToWP\WPAN\Notices_Manager' ) ) {
 			$activated_plugins       = self::$activated_plugins;
 			$activated_plugins[]     = $plugin;
 			self::$activated_plugins = $activated_plugins;
-			set_transient( 'ttwpwpan_activated_plugins', self::$activated_plugins, WEEK_IN_SECONDS );
+			set_transient( 'tttwpan_activated_plugins', self::$activated_plugins, WEEK_IN_SECONDS );
 		}
 
 		public static function set_upgrader_process( $upgrader_object, $options ) {
 			self::$upgrader_process_object  = $upgrader_object;
 			self::$upgrader_process_options = $options;
-			set_transient( 'ttwpwpan_upgrader_options', $options, WEEK_IN_SECONDS );
+			set_transient( 'tttwpan_upgrader_options', $options, WEEK_IN_SECONDS );
 		}
 
 		/**
