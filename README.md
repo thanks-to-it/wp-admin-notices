@@ -1,8 +1,8 @@
-# WP Admin Notices - TTWP
+# WP Admin Notices
 An easy and convenient way to create WordPress admin notices that can be closed persistently. Besides that it has some cool features:
-* Make your notice keep hidden only for the user who closed it.
-* Display your notice on specific situations, like screen ids, $_GET / $_POST requests, even if some plugin gets updated or activated
-* Create your own special cases where/when your notice should be displayed
+* Keep your notices hidden only for the user who closed it.
+* Display your notice on specific situations, like when some plugin gets updated or activated or on specific admin screen ids or on $_GET / $_POST requests, 
+* [Create your own special cases](https://github.com/thanks-to-it/wp-admin-notices/wiki/Custom-display_on) where/when your notice should be displayed
 
 ## Simple Usage
 
@@ -17,6 +17,16 @@ add_action( 'admin_notices', function () {
 ```
 
 **Note:** By default, this library will make notices persist, meaning they will not be displayed again after user close them, unless they expire
+
+## Initialization
+In order to make it work perfectly, you need to **initialize** it like this:
+```php
+add_action( 'wp_ajax_' . 'wpanttwp_dismiss_persist', array( 'ThanksToIT\WPAN\Notices_Manager', 'ajax_dismiss' ) );
+add_action( 'activated_plugin', array( 'ThanksToIT\WPAN\Notices_Manager', 'set_activated_plugin' ) );
+add_action( 'upgrader_process_complete', array( 'ThanksToIT\WPAN\Notices_Manager', 'set_upgrader_process' ), 10, 2 );
+```
+And it's **important** to make these calls before **any other hook** on your plugin/theme.
+But don't worry, this library will be loaded only when it's necessary, as it's being called inside the proper hooks
 
 ## create_notice() parameters
 
@@ -75,12 +85,18 @@ add_action( 'admin_notices', function () {
 } );
 ```
 
-## Initialization
-In order to make it work perfectly, you need to **initialize** it like this:
-```php
-add_action( 'wp_ajax_' . 'tttwpan_dismiss_persist', array( 'ThanksToIT\WPAN\Notices_Manager', 'ajax_dismiss' ) );
-add_action( 'activated_plugin', array( 'ThanksToIT\WPAN\Notices_Manager', 'set_activated_plugin' ) );
-add_action( 'upgrader_process_complete', array( 'ThanksToIT\WPAN\Notices_Manager', 'set_upgrader_process' ), 10, 2 );
+## Package Installation (via Composer)
+
+To install this package, edit your `composer.json` file:
+
+```js
+{
+    "require": {
+        "thanks-to-it/wp-admin-notices": "dev-master"
+    }
+}
 ```
-And it's **important** to make these calls before **any other hook** on your plugin/theme.
-But don't worry, this library will be loaded only when it's necessary, as it's being called inside the proper hooks
+
+Now run:
+
+`$ composer install`
